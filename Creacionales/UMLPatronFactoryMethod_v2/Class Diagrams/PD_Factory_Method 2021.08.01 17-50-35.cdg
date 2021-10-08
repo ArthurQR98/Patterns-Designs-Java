@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Factory_Method">
+  <ClassDiagramComponents>
+    <Class name="ClienteContado" package="pd_factory_method" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="creaPedido" returnType="Pedido" visibility="protected">
+          <Argument type="double" name="importe"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ClienteCredito" package="pd_factory_method" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="creaPedido" returnType="Pedido" visibility="protected">
+          <Argument type="double" name="importe"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="pd_factory_method" visibility="public" isAbstract="true" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="pedidos" type="List&lt;Pedido&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="creaPedido" returnType="Pedido" visibility="protected" isAbstract="true">
+          <Argument type="double" name="importe"/>
+        </Method>
+        <Method name="nuevoPedido" returnType="void" visibility="public">
+          <Argument type="double" name="importe"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PD_Factory_Method" package="pd_factory_method" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Pedido" package="pd_factory_method" visibility="public" isAbstract="true" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="importe" type="double" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="importe"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="valida" returnType="boolean" visibility="public" isAbstract="true"/>
+        <Method name="paga" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="PedidoCredito" package="pd_factory_method" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="importe"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="valida" returnType="boolean" visibility="public"/>
+        <Method name="paga" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PedidoContado" package="pd_factory_method" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="importe"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="valida" returnType="boolean" visibility="public"/>
+        <Method name="paga" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="pd_factory_method.ClienteContado" target="pd_factory_method.Cliente"/>
+    <HasRelation name="pedidos" source="pd_factory_method.Cliente" target="pd_factory_method.Pedido" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Pedido&gt;"/>
+    <UseRelation source="pd_factory_method.ClienteContado" target="pd_factory_method.Pedido" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pd_factory_method.ClienteCredito" target="pd_factory_method.Pedido" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_factory_method.PedidoContado" target="pd_factory_method.Pedido"/>
+    <IsRelation name="is" source="pd_factory_method.ClienteCredito" target="pd_factory_method.Cliente"/>
+    <IsRelation name="is" source="pd_factory_method.PedidoCredito" target="pd_factory_method.Pedido"/>
+    <UseRelation source="pd_factory_method.Cliente" target="pd_factory_method.Pedido" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

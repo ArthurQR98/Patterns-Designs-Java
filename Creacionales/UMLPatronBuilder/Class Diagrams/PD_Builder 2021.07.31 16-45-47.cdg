@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Builder">
+  <ClassDiagramComponents>
+    <Class name="DocumentacionPDF" package="pd_builder" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="agregaDocumento" returnType="void" visibility="public">
+          <Argument type="String" name="documento"/>
+        </Method>
+        <Method name="imprime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Documentacion" package="pd_builder" visibility="public" isAbstract="true" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="contenido" type="List&lt;String&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregaDocumento" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="documento"/>
+        </Method>
+        <Method name="imprime" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="PD_Builder" package="pd_builder" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConstructorDocumentacionVehiculoHTML" package="pd_builder" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="construyeSolicitudPedido" returnType="void" visibility="public">
+          <Argument type="String" name="nombreCliente"/>
+        </Method>
+        <Method name="construyeSolicitudMatriculacion" returnType="void" visibility="public">
+          <Argument type="String" name="nombreSolitante"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DocumentacionHTML" package="pd_builder" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="agregaDocumento" returnType="void" visibility="public">
+          <Argument type="String" name="documento"/>
+        </Method>
+        <Method name="imprime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Vendedor" package="pd_builder" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="constructor" type="ConstructorDocumentacionVehiculo" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ConstructorDocumentacionVehiculo" name="constructor"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="contruye" returnType="Documentacion" visibility="public">
+          <Argument type="String" name="nombreCliente"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConstructorDocumentacionVehiculoPDF" package="pd_builder" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="construyeSolicitudPedido" returnType="void" visibility="public">
+          <Argument type="String" name="nombreCliente"/>
+        </Method>
+        <Method name="construyeSolicitudMatriculacion" returnType="void" visibility="public">
+          <Argument type="String" name="nombreSolitante"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConstructorDocumentacionVehiculo" package="pd_builder" visibility="public" isAbstract="true" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="documentacion" type="Documentacion" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="construyeSolicitudPedido" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="nombreCliente"/>
+        </Method>
+        <Method name="construyeSolicitudMatriculacion" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="nombreSolitante"/>
+        </Method>
+        <Method name="resultado" returnType="Documentacion" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="pd_builder.DocumentacionHTML" target="pd_builder.Documentacion"/>
+    <IsRelation name="is" source="pd_builder.DocumentacionPDF" target="pd_builder.Documentacion"/>
+    <HasRelation name="constructor" source="pd_builder.Vendedor" target="pd_builder.ConstructorDocumentacionVehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="documentacion" source="pd_builder.ConstructorDocumentacionVehiculo" target="pd_builder.Documentacion" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_builder.ConstructorDocumentacionVehiculoHTML" target="pd_builder.ConstructorDocumentacionVehiculo"/>
+    <UseRelation source="pd_builder.ConstructorDocumentacionVehiculo" target="pd_builder.Documentacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pd_builder.Vendedor" target="pd_builder.Documentacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_builder.ConstructorDocumentacionVehiculoPDF" target="pd_builder.ConstructorDocumentacionVehiculo"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

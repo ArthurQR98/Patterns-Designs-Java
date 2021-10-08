@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Prototype">
+  <ClassDiagramComponents>
+    <Class name="DocumentacionEnBlanco" package="pd_prototype" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="_instance" type="DocumentacionEnBlanco" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="Instance" returnType="DocumentacionEnBlanco" visibility="public" isStatic="true"/>
+        <Method name="incluye" returnType="void" visibility="public">
+          <Argument type="Documento" name="doc"/>
+        </Method>
+        <Method name="excluye" returnType="void" visibility="public">
+          <Argument type="Documento" name="doc"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DocumentacionCliente" package="pd_prototype" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="informacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="visualiza" returnType="void" visibility="public"/>
+        <Method name="imprime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CertificadoCesion" package="pd_prototype" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="imprime" returnType="void" visibility="public"/>
+        <Method name="visualiza" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Documentacion" package="pd_prototype" visibility="public" isAbstract="true" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="documentos" type="List&lt;Documento&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getDocumentos" returnType="List&lt;Documento&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PD_Prototype" package="pd_prototype" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Documento" package="pd_prototype" visibility="public" isAbstract="true" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="contenido" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="duplica" returnType="Documento" visibility="public"/>
+        <Method name="rellena" returnType="void" visibility="public">
+          <Argument type="String" name="informacion"/>
+        </Method>
+        <Method name="imprime" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="visualiza" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="OrdenDePedido" package="pd_prototype" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="imprime" returnType="void" visibility="public"/>
+        <Method name="visualiza" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SolicitudMatriculacion" package="pd_prototype" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="imprime" returnType="void" visibility="public"/>
+        <Method name="visualiza" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="_instance" source="pd_prototype.DocumentacionEnBlanco" target="pd_prototype.DocumentacionEnBlanco" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_prototype.DocumentacionCliente" target="pd_prototype.Documentacion"/>
+    <UseRelation source="pd_prototype.DocumentacionEnBlanco" target="pd_prototype.Documentacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_prototype.SolicitudMatriculacion" target="pd_prototype.Documento"/>
+    <IsRelation name="is" source="pd_prototype.DocumentacionEnBlanco" target="pd_prototype.Documentacion"/>
+    <UseRelation source="pd_prototype.Documento" target="pd_prototype.Documento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_prototype.CertificadoCesion" target="pd_prototype.Documento"/>
+    <IsRelation name="is" source="pd_prototype.OrdenDePedido" target="pd_prototype.Documento"/>
+    <UseRelation source="pd_prototype.Documentacion" target="pd_prototype.Documento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pd_prototype.DocumentacionEnBlanco" target="pd_prototype.Documento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="documentos" source="pd_prototype.Documentacion" target="pd_prototype.Documento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Documento&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

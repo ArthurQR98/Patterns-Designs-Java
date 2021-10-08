@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Abstract_Factory">
+  <ClassDiagramComponents>
+    <Class name="AutomovilGasolina" package="pd_abstract_factory" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+          <Argument type="double" name="espacio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarCaracteristicas" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FabricaVehiculoElectricidad" package="pd_abstract_factory" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createAutomovil" returnType="Automovil" visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+          <Argument type="double" name="espacio"/>
+        </Method>
+        <Method name="createScooter" returnType="Scooter" visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="FabricaVehiculo" package="pd_abstract_factory" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Methods>
+        <Method name="createAutomovil" returnType="Automovil" visibility="package">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+          <Argument type="double" name="espacio"/>
+        </Method>
+        <Method name="createScooter" returnType="Scooter" visibility="package">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="ScooterElectricidad" package="pd_abstract_factory" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarCaracteristicas" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PD_Abstract_Factory" package="pd_abstract_factory" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="nAutos" type="int" visibility="public" isStatic="true"/>
+        <Field name="nScooters" type="int" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AutomovilElectricidad" package="pd_abstract_factory" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+          <Argument type="double" name="espacio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarCaracteristicas" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ScooterGasolina" package="pd_abstract_factory" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarCaracteristicas" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FabricaVehiculoGasolina" package="pd_abstract_factory" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createAutomovil" returnType="Automovil" visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+          <Argument type="double" name="espacio"/>
+        </Method>
+        <Method name="createScooter" returnType="Scooter" visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Scooter" package="pd_abstract_factory" visibility="public" isAbstract="true" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="modelo" type="String" visibility="protected"/>
+        <Field name="color" type="String" visibility="protected"/>
+        <Field name="potencia" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarCaracteristicas" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Automovil" package="pd_abstract_factory" visibility="public" isAbstract="true" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="modelo" type="String" visibility="protected"/>
+        <Field name="color" type="String" visibility="protected"/>
+        <Field name="potencia" type="int" visibility="protected"/>
+        <Field name="espacio" type="double" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="int" name="potencia"/>
+          <Argument type="double" name="espacio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarCaracteristicas" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="pd_abstract_factory.FabricaVehiculoElectricidad" target="pd_abstract_factory.Scooter" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pd_abstract_factory.FabricaVehiculo" target="pd_abstract_factory.Automovil" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="pd_abstract_factory.FabricaVehiculoGasolina" target="pd_abstract_factory.FabricaVehiculo"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="pd_abstract_factory.FabricaVehiculoElectricidad" target="pd_abstract_factory.FabricaVehiculo"/>
+    <IsRelation name="is" source="pd_abstract_factory.AutomovilGasolina" target="pd_abstract_factory.Automovil"/>
+    <UseRelation source="pd_abstract_factory.FabricaVehiculoGasolina" target="pd_abstract_factory.Automovil" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pd_abstract_factory.FabricaVehiculoGasolina" target="pd_abstract_factory.Scooter" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_abstract_factory.ScooterElectricidad" target="pd_abstract_factory.Scooter"/>
+    <IsRelation name="is" source="pd_abstract_factory.ScooterGasolina" target="pd_abstract_factory.Scooter"/>
+    <UseRelation source="pd_abstract_factory.FabricaVehiculoElectricidad" target="pd_abstract_factory.Automovil" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_abstract_factory.AutomovilElectricidad" target="pd_abstract_factory.Automovil"/>
+    <UseRelation source="pd_abstract_factory.FabricaVehiculo" target="pd_abstract_factory.Scooter" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

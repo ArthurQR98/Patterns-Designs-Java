@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Singleton">
+  <ClassDiagramComponents>
+    <Class name="Comercial" package="pd_singleton" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="protected"/>
+        <Field name="direccion" type="String" visibility="protected"/>
+        <Field name="email" type="String" visibility="protected"/>
+        <Field name="_instance" type="Comercial" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="Instance" returnType="Comercial" visibility="public" isStatic="true"/>
+        <Method name="visualiza" returnType="void" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDireccion" returnType="String" visibility="public"/>
+        <Method name="setDireccion" returnType="void" visibility="public">
+          <Argument type="String" name="direccion"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PD_Singleton" package="pd_singleton" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="visualiza" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="pd_singleton.Comercial" target="pd_singleton.Comercial" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="_instance" source="pd_singleton.Comercial" target="pd_singleton.Comercial" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

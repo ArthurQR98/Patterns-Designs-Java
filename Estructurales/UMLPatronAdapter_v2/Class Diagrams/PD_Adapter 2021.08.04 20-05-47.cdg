@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Adapter">
+  <ClassDiagramComponents>
+    <Class name="DocumentoPDF" package="pd_adapter" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="herramientaPDF" type="ComponentePDF" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setContenido" returnType="void" visibility="public">
+          <Argument type="String" name="contenido"/>
+        </Method>
+        <Method name="dibuja" returnType="void" visibility="public"/>
+        <Method name="imprime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PD_Adapter" package="pd_adapter" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ComponentePDF" package="pd_adapter" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="contenido" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="pdfFijaContenido" returnType="void" visibility="public">
+          <Argument type="String" name="contenido"/>
+        </Method>
+        <Method name="pdfPreparaVisualizacion" returnType="void" visibility="public"/>
+        <Method name="pdfRefresca" returnType="void" visibility="public"/>
+        <Method name="pdfFinalizaVisualizacion" returnType="void" visibility="public"/>
+        <Method name="pdfEnviaImpresora" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Documento" package="pd_adapter" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Methods>
+        <Method name="setContenido" returnType="void" visibility="package">
+          <Argument type="String" name="contenido"/>
+        </Method>
+        <Method name="dibuja" returnType="void" visibility="package"/>
+        <Method name="imprime" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Class name="DocumentoHTML" package="pd_adapter" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="contenido" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setContenido" returnType="void" visibility="public">
+          <Argument type="String" name="contenido"/>
+        </Method>
+        <Method name="dibuja" returnType="void" visibility="public"/>
+        <Method name="imprime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="herramientaPDF" source="pd_adapter.DocumentoPDF" target="pd_adapter.ComponentePDF" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="pd_adapter.DocumentoHTML" target="pd_adapter.Documento"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="pd_adapter.DocumentoPDF" target="pd_adapter.Documento"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
