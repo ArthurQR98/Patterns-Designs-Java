@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Mediator">
+  <ClassDiagramComponents>
+    <Class name="ZonaInformacion" package="pd_mediator" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="reader" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="informa" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Control" package="pd_mediator" visibility="public" isAbstract="true" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="valor" type="String" visibility="protected"/>
+        <Field name="director" type="Formulario" visibility="public"/>
+        <Field name="nombre" type="String" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getValor" returnType="String" visibility="public"/>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="String" name="valor"/>
+        </Method>
+        <Method name="getDirector" returnType="Formulario" visibility="public"/>
+        <Method name="setDirector" returnType="void" visibility="public">
+          <Argument type="Formulario" name="director"/>
+        </Method>
+        <Method name="informa" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="modifica" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="Boton" package="pd_mediator" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="reader" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="informa" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PopupMenu" package="pd_mediator" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="opciones" type="List&lt;String&gt;" visibility="protected"/>
+        <Field name="reader" type="Scanner" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="informa" returnType="void" visibility="public"/>
+        <Method name="agregaOpcion" returnType="void" visibility="public">
+          <Argument type="String" name="opcion"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Formulario" package="pd_mediator" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="controles" type="List&lt;Control&gt;" visibility="protected"/>
+        <Field name="controlesCoprestatario" type="List&lt;Control&gt;" visibility="protected"/>
+        <Field name="menuCoprestatario" type="PopupMenu" visibility="protected"/>
+        <Field name="botonOk" type="Boton" visibility="package"/>
+        <Field name="enCurso" type="boolean" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregaControl" returnType="void" visibility="public">
+          <Argument type="Control" name="control"/>
+        </Method>
+        <Method name="agregaControlCoprestatario" returnType="void" visibility="public">
+          <Argument type="Control" name="control"/>
+        </Method>
+        <Method name="setMenuCoprestatario" returnType="void" visibility="public">
+          <Argument type="PopupMenu" name="menuCoprestatario"/>
+        </Method>
+        <Method name="setBotonOk" returnType="void" visibility="public">
+          <Argument type="Boton" name="botonOk"/>
+        </Method>
+        <Method name="controlModificado" returnType="void" visibility="package">
+          <Argument type="Control" name="control"/>
+        </Method>
+        <Method name="informa" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PD_Mediator" package="pd_mediator" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="director" source="pd_mediator.Control" target="pd_mediator.Formulario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_mediator.PopupMenu" target="pd_mediator.Control"/>
+    <UseRelation source="pd_mediator.Formulario" target="pd_mediator.PopupMenu" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="botonOk" source="pd_mediator.Formulario" target="pd_mediator.Boton" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="controles" source="pd_mediator.Formulario" target="pd_mediator.Control" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Control&gt;"/>
+    <UseRelation source="pd_mediator.Formulario" target="pd_mediator.Control" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="controlesCoprestatario" source="pd_mediator.Formulario" target="pd_mediator.Control" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Control&gt;"/>
+    <IsRelation name="is" source="pd_mediator.Boton" target="pd_mediator.Control"/>
+    <UseRelation source="pd_mediator.Control" target="pd_mediator.Formulario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="menuCoprestatario" source="pd_mediator.Formulario" target="pd_mediator.PopupMenu" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pd_mediator.Formulario" target="pd_mediator.Boton" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_mediator.ZonaInformacion" target="pd_mediator.Control"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

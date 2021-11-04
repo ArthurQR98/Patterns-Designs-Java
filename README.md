@@ -1,4 +1,4 @@
-# Patterns Desings with Java 🚀
+# Patterns Designs with Java 🚀
 
 Design patterns help us solve some problems we have when working with objects.
 
@@ -9,6 +9,7 @@ Design patterns help us solve some problems we have when working with objects.
 ## Construido con 🛠️
 
 * [Java](https://www.java.com/es/download/)
+* [NetBeans 12](https://netbeans.apache.org/)
 
 ## Licencia 📄
 

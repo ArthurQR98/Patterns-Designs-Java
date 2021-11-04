@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Flyweight">
+  <ClassDiagramComponents>
+    <Class name="VehiculoSolicitado" package="pd_flyweight" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="opciones" type="List&lt;OpcionVehiculo&gt;" visibility="protected"/>
+        <Field name="precioDeVentaOpciones" type="List&lt;Integer&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="AgregaOpciones" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="precioDeVenta"/>
+          <Argument type="FabricaOpcion" name="fabrica"/>
+        </Method>
+        <Method name="muestraOpciones" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FabricaOpcion" package="pd_flyweight" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="opciones" type="Map&lt;String, OpcionVehiculo&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getOption" returnType="OpcionVehiculo" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="OpcionVehiculo" package="pd_flyweight" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="protected"/>
+        <Field name="descripcion" type="String" visibility="protected"/>
+        <Field name="precioEstandar" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="visualiza" returnType="void" visibility="public">
+          <Argument type="int" name="precioDeVenta"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PD_Flyweight" package="pd_flyweight" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="opciones" source="pd_flyweight.VehiculoSolicitado" target="pd_flyweight.OpcionVehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;OpcionVehiculo&gt;"/>
+    <UseRelation source="pd_flyweight.VehiculoSolicitado" target="pd_flyweight.FabricaOpcion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="opciones" source="pd_flyweight.FabricaOpcion" target="pd_flyweight.OpcionVehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;String, OpcionVehiculo&gt;"/>
+    <UseRelation source="pd_flyweight.FabricaOpcion" target="pd_flyweight.OpcionVehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

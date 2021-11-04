@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Proxy">
+  <ClassDiagramComponents>
+    <Class name="AnimacionProxy" package="pd_proxy" visibility="public" xPosition="999.0" yPosition="100.0">
+      <Fields>
+        <Field name="video" type="Video" visibility="protected"/>
+        <Field name="foto" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="dibuja" returnType="void" visibility="public"/>
+        <Method name="click" returnType="void" visibility="public"/>
+        <Method name="dibuja" returnType="void" visibility="private">
+          <Argument type="String" name="foto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PD_Proxy" package="pd_proxy" visibility="public" xPosition="1900.0" yPosition="1000.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Video" package="pd_proxy" visibility="public" xPosition="100.0" yPosition="1000.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="dibuja" returnType="void" visibility="public"/>
+        <Method name="click" returnType="void" visibility="public"/>
+        <Method name="carga" returnType="void" visibility="public"/>
+        <Method name="reproduce" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Animacion" package="pd_proxy" visibility="public" xPosition="1000.0" yPosition="1900.0">
+      <Methods>
+        <Method name="dibuja" returnType="void" visibility="package"/>
+        <Method name="click" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="pd_proxy.Video" target="pd_proxy.Animacion"/>
+    <HasRelation name="video" source="pd_proxy.AnimacionProxy" target="pd_proxy.Video" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="pd_proxy.AnimacionProxy" target="pd_proxy.Animacion"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

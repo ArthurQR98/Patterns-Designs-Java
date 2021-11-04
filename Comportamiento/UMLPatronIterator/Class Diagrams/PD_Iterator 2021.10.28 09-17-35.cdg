@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Iterator">
+  <ClassDiagramComponents>
+    <Class name="Catalogo" package="pd_iterator" visibility="public" isAbstract="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="contenido" type="List&lt;TElemento&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createIterador" returnType="TIterador" visibility="protected" isAbstract="true"/>
+        <Method name="busqueda" returnType="TIterador" visibility="public">
+          <Argument type="String" name="palabraClaveConsulta"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="IteradorVehiculo" package="pd_iterator" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="CatalogoVehiculo" package="pd_iterator" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="createIterador" returnType="IteradorVehiculo" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="Vehiculo" package="pd_iterator" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="visualiza" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Iterador" package="pd_iterator" visibility="public" isAbstract="true" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="palabraClaveConsulta" type="String" visibility="protected"/>
+        <Field name="indice" type="int" visibility="protected"/>
+        <Field name="contenido" type="List&lt;TElemento&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setPalabraClaveConsulta" returnType="void" visibility="public">
+          <Argument type="String" name="palabraClaveConsulta"/>
+          <Argument type="List&lt;TElemento&gt;" name="contenido"/>
+        </Method>
+        <Method name="inicio" returnType="void" visibility="public"/>
+        <Method name="siguiente" returnType="void" visibility="public"/>
+        <Method name="item" returnType="TElemento" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Elemento" package="pd_iterator" visibility="public" isAbstract="true" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="descripcion" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="palabraClaveValida" returnType="boolean" visibility="public">
+          <Argument type="String" name="palabraClave"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PD_Iterator" package="pd_iterator" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="pd_iterator.Vehiculo" target="pd_iterator.Elemento"/>
+    <UseRelation source="pd_iterator.Catalogo" target="pd_iterator.Iterador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pd_iterator.Iterador" target="pd_iterator.Elemento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_iterator.IteradorVehiculo" target="pd_iterator.Iterador"/>
+    <UseRelation source="pd_iterator.CatalogoVehiculo" target="pd_iterator.Iterador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pd_iterator.CatalogoVehiculo" target="pd_iterator.Catalogo"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

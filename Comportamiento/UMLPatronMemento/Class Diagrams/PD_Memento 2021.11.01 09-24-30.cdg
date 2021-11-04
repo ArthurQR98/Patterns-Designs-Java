@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PD_Memento">
+  <ClassDiagramComponents>
+    <Interface name="Memento" package="pd_memento" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Methods/>
+    </Interface>
+    <Class name="MementoImpl" package="pd_memento" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="opciones" type="List&lt;OpcionVehiculo&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="List&lt;OpcionVehiculo&gt;" name="opciones"/>
+        </Method>
+        <Method name="getEstado" returnType="List&lt;OpcionVehiculo&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CarritoOpciones" package="pd_memento" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="opciones" type="List&lt;OpcionVehiculo&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregaOpcion" returnType="Memento" visibility="public">
+          <Argument type="OpcionVehiculo" name="opcionVehiculo"/>
+        </Method>
+        <Method name="anula" returnType="void" visibility="public">
+          <Argument type="Memento" name="memento"/>
+        </Method>
+        <Method name="visualiza" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="OpcionVehiculo" package="pd_memento" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="protected"/>
+        <Field name="opcionesIncompatibles" type="List&lt;OpcionVehiculo&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregaOpcionIncompatible" returnType="void" visibility="public">
+          <Argument type="OpcionVehiculo" name="opcionIncompatible"/>
+        </Method>
+        <Method name="getOpcionesIncompatibles" returnType="List&lt;OpcionVehiculo&gt;" visibility="public"/>
+        <Method name="visualiza" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PD_Memento" package="pd_memento" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="pd_memento.MementoImpl" target="pd_memento.OpcionVehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pd_memento.CarritoOpciones" target="pd_memento.Memento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pd_memento.OpcionVehiculo" target="pd_memento.OpcionVehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="pd_memento.MementoImpl" target="pd_memento.Memento"/>
+    <UseRelation source="pd_memento.CarritoOpciones" target="pd_memento.OpcionVehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="opciones" source="pd_memento.MementoImpl" target="pd_memento.OpcionVehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;OpcionVehiculo&gt;"/>
+    <HasRelation name="opciones" source="pd_memento.CarritoOpciones" target="pd_memento.OpcionVehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;OpcionVehiculo&gt;"/>
+    <HasRelation name="opcionesIncompatibles" source="pd_memento.OpcionVehiculo" target="pd_memento.OpcionVehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;OpcionVehiculo&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

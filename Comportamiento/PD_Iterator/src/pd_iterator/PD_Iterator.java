@@ -1,0 +1,18 @@
+package pd_iterator;
+
+public class PD_Iterator {
+
+    public static void main(String[] args) {
+        CatalogoVehiculo catalogo = new CatalogoVehiculo();
+        IteradorVehiculo iterador = catalogo.busqueda("economico");
+        Vehiculo vehiculo;
+        iterador.inicio();
+        vehiculo = iterador.item();
+        while (vehiculo != null) {
+            vehiculo.visualiza();
+            iterador.siguiente();
+            vehiculo = iterador.item();
+        }
+    }
+
+}
