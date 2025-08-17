@@ -1,0 +1,14 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class PD_Template_Method
+abstract class Pedido
+class PedidoEspaña
+class PedidoLuxemburgo
+
+PedidoEspaña        -[#000082,plain]-^  Pedido
+PedidoLuxemburgo    -[#000082,plain]-^  Pedido
+@enduml
