@@ -1,0 +1,16 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+interface DibujaCatalogo << interface >>
+class DibujaTresVehiculosPorLinea
+class DibujaUnVehiculoPorLinea
+class PD_Strategy
+class VistaCatalogo
+class VistaVehiculo
+
+DibujaTresVehiculosPorLinea  -[#008200,dashed]-^  DibujaCatalogo              
+DibujaUnVehiculoPorLinea     -[#008200,dashed]-^  DibujaCatalogo              
+@enduml
